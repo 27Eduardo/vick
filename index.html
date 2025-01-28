@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eduardo e Vicktoria</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f8cdda, #1e3c72); /* Gradiente suave de rosa e azul */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            color: #fff;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.7); /* Fundo suave e leve */
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 3em;
+            font-family: 'Brush Script MT', cursive;
+            color: #e63946; /* Cor romântica em tom de vermelho-rosa */
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 2em;
+            font-weight: 400;
+            color: #f1faee; /* Cor suave de branco para o subtítulo */
+            margin-bottom: 30px;
+        }
+
+        .time {
+            font-size: 3em;
+            font-weight: bold;
+            color: #ffb4a2; /* Cor suave de pêssego para o contador */
+            margin-top: 20px;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #d1d1d1;
+        }
+
+        img {
+            width: 370px; /* Aumentando a largura da imagem */
+            height: 370px; /* Aumentando a altura da imagem */
+            object-fit: cover;
+            margin-top: 40px;
+            border-radius: 50%; /* Mantendo o formato redondo */
+        }
+
+        audio {
+            display: none; /* Oculta o player de áudio */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Eduardo e Vicktoria</h1>
+        <h2>Juntos há:</h2>
+        <div class="time" id="timer"></div>
+        
+        <!-- Substitua o link abaixo pelo caminho correto da imagem no seu computador -->
+        <img src="foto.jpg" alt="Foto de Eduardo e Vicktoria">
+        
+        <!-- O player de áudio será oculto, mas a música tocará em segundo plano -->
+        <audio autoplay loop>
+            <!-- Substitua 'musica.mp3' pelo caminho correto do arquivo de música no seu computador -->
+            <source src="musica.mp3" type="audio/mp3">
+            Seu navegador não suporta o elemento de áudio.
+        </audio>
+
+        <div class="footer">Criado com ❤️ por Eduardo Ferreira Ostroski</div>
+    </div>
+
+    <script>
+        function calcularTempo() {
+            const dataInicial = new Date('2025-01-11T05:36:00');
+            const agora = new Date();
+            const tempoDecorrido = agora - dataInicial;
+            
+            const dias = Math.floor(tempoDecorrido / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((tempoDecorrido % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((tempoDecorrido % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((tempoDecorrido % (1000 * 60)) / 1000);
+
+            document.getElementById('timer').innerHTML = `${dias} dias, ${horas} horas, ${minutos} minutos, ${segundos} segundos`;
+        }
+
+        setInterval(calcularTempo, 1000);
+    </script>
+
+</body>
+</html>
